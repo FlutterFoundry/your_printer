@@ -14,35 +14,39 @@ class ThermalPreview extends StatelessWidget {
     final paperWidth = config.paperSize.widthMm;
 
     return Center(
-      child: Container(
-        width: paperWidth * 1.6,
-        constraints: const BoxConstraints(maxHeight: double.infinity),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(2),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.3),
-              blurRadius: 6,
-              offset: const Offset(0, 2),
-            ),
-          ],
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(2),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              _serratedEdge(),
-              Flexible(
-                child: SingleChildScrollView(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 12, vertical: 8),
-                  child: _buildContent(context),
-                ),
+      child: InteractiveViewer(
+        minScale: 0.5,
+        maxScale: 4.0,
+        child: Container(
+          width: paperWidth * 5.0,
+          constraints: const BoxConstraints(maxHeight: double.infinity),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(2),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.3),
+                blurRadius: 6,
+                offset: const Offset(0, 2),
               ),
-              _serratedEdge(),
             ],
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(2),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                _serratedEdge(),
+                Flexible(
+                  child: SingleChildScrollView(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 12, vertical: 8),
+                    child: _buildContent(context),
+                  ),
+                ),
+                _serratedEdge(),
+              ],
+            ),
           ),
         ),
       ),
@@ -51,7 +55,7 @@ class ThermalPreview extends StatelessWidget {
 
   Widget _serratedEdge() {
     return CustomPaint(
-      size: const Size(double.infinity, 10),
+      size: const Size(double.infinity, 5),
       painter: _SerratedEdgePainter(),
     );
   }

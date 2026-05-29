@@ -197,7 +197,7 @@ class _PrintConfigurationScreenState extends State<PrintConfigurationScreen> {
     }
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12),
+      padding: const EdgeInsets.symmetric(vertical: 4),
       child: ThermalPreview(job: job),
     );
   }

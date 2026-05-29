@@ -127,7 +127,7 @@ class HomeScreen extends StatelessWidget {
 
     if (job.filePath != null || job.textContent != null) {
       return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 12),
+        padding: const EdgeInsets.symmetric(vertical: 4),
         child: ThermalPreview(job: job),
       );
     }
