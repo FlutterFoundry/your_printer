@@ -27,7 +27,7 @@ A thermal printer companion app for Android. Print text, images, and PDFs via Bl
 ### Install
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/FlutterFoundry/your_printer
 cd your_printer
 flutter pub get
 flutter run
